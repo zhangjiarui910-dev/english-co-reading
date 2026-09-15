@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: english-co-reading
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    disk:
+      name: reading-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: MCP_SSE_HOST
+        value: 0.0.0.0
+      - key: READING_MCP_DATA_DIR
+        value: /var/data
+      - key: READING_PYTHON
+        value: python3
+      - key: READING_MULTIUSER
+        value: "1"
