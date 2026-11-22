@@ -1,0 +1,3 @@
+# A second test chapter
+
+This second synthetic chapter verifies continuation after the first chapter is marked read. It gives the test suite a stable next chunk without bundling a copyrighted book or a user's private reading history.

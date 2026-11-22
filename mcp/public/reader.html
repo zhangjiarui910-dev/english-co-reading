@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Co-Reading</title>
+    <link rel="stylesheet" href="/reader.css?v=20260902e" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="sidebar" aria-label="Library">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Co-Reading</p>
+            <h1>Library</h1>
+          </div>
+          <div class="topbar-actions">
+            <button id="import-book" class="icon-button" title="导入 EPUB、PDF、TXT 或 Markdown">＋</button>
+            <button id="refresh" class="icon-button" title="Refresh library">↻</button>
+          </div>
+          <input id="import-file" type="file" accept=".epub,.pdf,.txt,.text,.md,.markdown" multiple hidden />
+        </header>
+        <div id="books" class="books" aria-live="polite"></div>
+      </section>
+
+      <section class="chapters" aria-label="Chapters">
+        <header class="panel-head">
+          <button id="back-to-library" class="panel-back" type="button">← 返回书架</button>
+          <div>
+            <p id="book-meta" class="eyebrow">Choose a book</p>
+            <h2 id="book-title">Reading shelf</h2>
+          </div>
+        </header>
+        <div id="chunks" class="chunk-list"></div>
+      </section>
+
+      <section class="reader" aria-label="Reader">
+        <header class="reader-head">
+          <div>
+            <p id="chunk-file" class="eyebrow">No chapter selected</p>
+            <h2 id="chunk-title">Open a chapter to start reading</h2>
+          </div>
+          <div class="reader-actions">
+            <a class="secondary-button nav-button" href="/">回到复习本</a>
+            <button id="open-reading-note" class="secondary-button" disabled>本段笔记</button>
+            <button id="retry-notes" class="secondary-button" hidden>发送未送达留言</button>
+            <button id="show-card" class="secondary-button" disabled>生成分享卡</button>
+            <button id="continue-reading" class="secondary-button" disabled>Continue</button>
+            <button id="mark-read" class="secondary-button" disabled>本节读完</button>
+          </div>
+        </header>
+
+        <p id="status" class="reader-status" aria-live="polite">选择原文后，可以写私人笔记或直接给 Codex 留言。</p>
+
+        <article id="text" class="text">
+          <p class="empty">Select a book and chapter. Highlight text to leave a note for Codex.</p>
+        </article>
+
+        <aside id="margins" class="margins" aria-label="Margin notes"></aside>
+
+        <form id="note-form" class="note-form" hidden>
+          <div class="note-form-head">
+            <strong id="note-form-title">给 Codex 留言</strong>
+            <button type="button" id="close-note" class="icon-button compact-close" aria-label="关闭留言框">×</button>
+          </div>
+          <div class="quote-preview" id="quote-preview"></div>
+          <textarea id="note" rows="3" placeholder="Leave a note for Codex..."></textarea>
+          <div class="form-actions">
+            <button type="button" id="cancel-note" class="secondary-button">Cancel</button>
+            <button type="submit" id="note-submit" class="primary-button">Save note</button>
+          </div>
+        </form>
+
+        <div id="selection-tools" class="selection-tools" hidden aria-label="划线工具">
+          <button id="personal-note-selection" class="selection-action-button" type="button">写笔记</button>
+          <button id="codex-note-selection" class="selection-action-button codex-note-button" type="button">给 Codex 留言</button>
+        </div>
+
+        <div id="text-context-menu" class="text-context-menu" hidden role="menu" aria-label="原文操作">
+          <p id="context-menu-term" class="context-menu-term"></p>
+          <button id="save-vocabulary" type="button" role="menuitem">加入生词本</button>
+          <button id="context-highlight" type="button" role="menuitem">只划线</button>
+        </div>
+
+        <aside id="reading-note-panel" class="reading-note-panel" hidden aria-label="本段共读笔记">
+          <div class="reading-note-head">
+            <div>
+              <p class="eyebrow">My Reading Notes</p>
+              <h2>本段共读笔记</h2>
+            </div>
+            <button id="close-reading-note" class="icon-button compact-close" type="button" aria-label="关闭本段笔记">×</button>
+          </div>
+          <p id="reading-note-scope" class="reading-note-scope">选择章节后即可记录。</p>
+          <textarea id="reading-note-text" rows="14" placeholder="把共读总结、自己的想法或想继续追问的问题记在这里……"></textarea>
+          <div class="reading-note-footer">
+            <span id="reading-note-status">只保存在你的 English Co-Reading 数据目录中，不会发送给 Codex。</span>
+            <button id="save-reading-note" class="primary-button" type="button">保存笔记</button>
+          </div>
+        </aside>
+
+        <div id="toast" class="toast" hidden></div>
+
+        <aside id="card-panel" class="card-panel" hidden aria-label="Reading card">
+          <div class="card-panel-head">
+            <div>
+              <p class="eyebrow">Ritual Card</p>
+              <h2>Shared trace</h2>
+            </div>
+            <button id="card-close" class="icon-button" title="Close">×</button>
+          </div>
+          <div id="card-preview" class="card-preview"></div>
+          <div class="card-actions">
+            <button id="card-random" class="secondary-button">Another version</button>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <script type="module" src="/reader.js?v=20260903d"></script>
+  </body>
+</html>

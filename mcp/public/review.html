@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我的英语复习本</title>
+    <link rel="stylesheet" href="/review.css?v=20260831c" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav><span>English Co‑Reading</span><a class="reader-entry" href="/reader.html">查看原文 · 给 Codex 留言 →</a></nav>
+      <div class="hero-copy">
+        <div><p class="eyebrow">长期积累 · 只复习已确认内容</p><h1>我的英语复习本</h1><p id="summary">正在整理你的阅读痕迹……</p></div>
+        <div class="hero-actions"><button id="start-review" class="primary">开始一次复习</button><button data-export="markdown">导出 Markdown</button><button data-export="html">导出 HTML</button></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="filters" aria-label="复习筛选">
+        <label>搜索<input id="query" type="search" placeholder="词汇、原句或你的表达" /></label>
+        <label>书籍<select id="book-filter"><option value="">全部书籍</option></select></label>
+        <label>章节<select id="chunk-filter"><option value="">全部章节</option></select></label>
+        <label>状态<select id="status-filter"><option value="">全部状态</option><option>new</option><option>learning</option><option>known</option></select></label>
+      </section>
+
+      <section id="draft-section" class="draft-section" hidden>
+        <div class="section-head"><div><p class="eyebrow">Speech check</p><h2>待确认的语音输入</h2></div><p>先修正识别文本，再进入正式复习。</p></div>
+        <div id="drafts" class="drafts"></div>
+      </section>
+
+      <section id="vocabulary-section" class="vocabulary-section">
+        <div class="section-head"><div><p class="eyebrow">Vocabulary shelf</p><h2>生词与词组</h2></div><p id="vocabulary-summary">把共读中值得反复见面的表达放在一起。</p></div>
+        <section class="vocabulary-group" aria-labelledby="word-shelf-title">
+          <header class="shelf-subhead"><div><p class="eyebrow">Words</p><h3 id="word-shelf-title">生词</h3></div><span id="word-count">0 条</span></header>
+          <div id="word-items" class="vocabulary-items" aria-live="polite"></div>
+        </section>
+        <section class="vocabulary-group" aria-labelledby="phrase-shelf-title">
+          <header class="shelf-subhead"><div><p class="eyebrow">Phrases &amp; collocations</p><h3 id="phrase-shelf-title">词组与搭配</h3></div><span id="phrase-count">0 条</span></header>
+          <div id="phrase-items" class="vocabulary-items" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section class="notebook">
+        <div class="section-head"><div><p class="eyebrow">Confirmed notebook</p><h2 id="list-title">全部学习记录</h2></div><p id="review-progress"></p></div>
+        <div id="items" class="items" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <dialog id="edit-dialog">
+      <form id="edit-form" method="dialog">
+        <header><div><p class="eyebrow">Edit safely</p><h2>编辑复习记录</h2></div><button value="cancel" class="icon">×</button></header>
+        <input id="edit-id" type="hidden" />
+        <label>单词 / 类型<input id="edit-term" /></label>
+        <label>原文语境<textarea id="edit-context" rows="3"></textarea></label>
+        <label>当时的理解 / 表达<textarea id="edit-learner" rows="3"></textarea></label>
+        <label>推荐修正版<textarea id="edit-recommended" rows="3"></textarea></label>
+        <label>理解正确的地方（每行一条）<textarea id="edit-strengths" rows="3"></textarea></label>
+        <label>需要修正的地方（每行一条）<textarea id="edit-corrections" rows="3"></textarea></label>
+        <fieldset><legend>三层讲解</legend><label>Literal meaning<textarea id="edit-literal" rows="2"></textarea></label><label>Natural Chinese<textarea id="edit-natural" rows="2"></textarea></label><label>Context / literary inference<textarea id="edit-context-inference" rows="2"></textarea></label></fieldset>
+        <footer><button value="cancel">取消</button><button id="save-edit" value="default" class="primary">保存</button></footer>
+      </form>
+    </dialog>
+
+    <dialog id="share-dialog" class="share-dialog">
+      <header><div><p class="eyebrow">Public preview · 9:16</p><h2>分享卡片预览</h2></div><button id="close-share" class="icon">×</button></header>
+      <div class="share-layout">
+        <div id="share-card" class="share-card"></div>
+        <aside><label><input id="share-learner" type="checkbox" checked />显示最初理解</label><label><input id="share-feeling" type="checkbox" checked />显示阅读感受</label><p>默认不含用户名、本地路径、内部 ID 和私人备注。</p><button id="download-png" class="primary">下载 PNG</button><button id="story-mode">短视频展示模式</button><button id="next-story" hidden>下一幕</button></aside>
+      </div>
+    </dialog>
+    <div id="toast" role="status" hidden></div>
+    <script type="module" src="/review.js?v=20260903a"></script>
+  </body>
+</html>

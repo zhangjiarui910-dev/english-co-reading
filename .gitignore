@@ -1,11 +1,47 @@
+# Dependencies and caches
 node_modules/
-data/
-data-hosted/
-.tmp/
 __pycache__/
-*.pyc
-*.log
-.DS_Store
+*.py[cod]
+.pytest_cache/
+
+# Runtime and personal learning data
+data/
+books/
+uploads/
+exports/
+backups/
+trash/
+*.jsonl
+progress.json
+reading_sessions.json
+annotation_state.json
+english_*.json
+
+# Keep the small, synthetic test fixture public.
+!mcp/data.example/
+!mcp/data.example/**
+
+# Secrets and local deployment state
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.token
+credentials*.json
+
+# Generated media and local artifacts
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.zip
+*.log
+coverage/
+outputs/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

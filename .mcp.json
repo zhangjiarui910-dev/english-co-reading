@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "english_co_reading": {
+      "command": "node",
+      "args": ["./mcp/src/http.js"],
+      "cwd": ".",
+      "startup_timeout_sec": 15,
+      "tool_timeout_sec": 120,
+      "default_tools_approval_mode": "writes"
+    }
+  }
+}

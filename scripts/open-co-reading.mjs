@@ -6,7 +6,7 @@ const readerUrl = "http://127.0.0.1:8787/";
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.dirname(scriptDir);
 const serverScript = path.join(projectRoot, "src", "http.js");
-const dataDirectory = "C:\\Users\\90302\\Documents\\English Co-Reading";
+const dataDirectory = process.env.READING_MCP_DATA_DIR || path.join(projectRoot, "data");
 const noOpen = process.argv.includes("--no-open");
 
 async function serverReady() {

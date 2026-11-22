@@ -1,0 +1,43 @@
+{
+  "bookId": "anthropic-guidelines",
+  "title": "Synthetic Co-Reading Demo",
+  "author": "English Co-Reading contributors",
+  "language": "en",
+  "createdAt": "2026-01-01T00:00:00.000Z",
+  "source": {
+    "type": "synthetic",
+    "note": "Short original fixture used only by automated tests."
+  },
+  "chunks": [
+    {
+      "id": "ch00",
+      "title": "Claude and the mission of Anthropic",
+      "sectionTitle": "Claude and the mission of Anthropic",
+      "sectionIndex": 1,
+      "sectionPart": 1,
+      "sectionPartCount": 1,
+      "sourcePath": null,
+      "order": 0,
+      "path": "chunks/ch00.txt",
+      "charCount": 505,
+      "wordCount": 76,
+      "prevId": null,
+      "nextId": "ch01"
+    },
+    {
+      "id": "ch01",
+      "title": "A second test chapter",
+      "sectionTitle": "A second test chapter",
+      "sectionIndex": 2,
+      "sectionPart": 1,
+      "sectionPartCount": 1,
+      "sourcePath": null,
+      "order": 1,
+      "path": "chunks/ch01.txt",
+      "charCount": 223,
+      "wordCount": 36,
+      "prevId": "ch00",
+      "nextId": null
+    }
+  ]
+}

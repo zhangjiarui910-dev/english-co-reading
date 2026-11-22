@@ -1,0 +1,22 @@
+[Unit]
+Description=English Co-Reading MCP
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/english-co-reading/env
+ExecStartPre=-/usr/bin/docker rm -f english-co-reading
+ExecStart=/usr/bin/docker run --rm --name english-co-reading \
+  --env-file /etc/english-co-reading/env \
+  --publish 127.0.0.1:18792:3100 \
+  --volume /srv/english-co-reading/data:/data \
+  english-co-reading:latest
+ExecStop=/usr/bin/docker stop -t 15 english-co-reading
+Restart=always
+RestartSec=5
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

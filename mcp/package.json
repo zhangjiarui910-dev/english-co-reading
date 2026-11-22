@@ -1,0 +1,52 @@
+{
+  "name": "english-co-reading-mcp",
+  "version": "0.1.0",
+  "description": "An independent English-learning co-reading MCP with books, passages, vocabulary, practice, progress, and margin notes.",
+  "type": "module",
+  "author": "Meizi and Codex, based on co-reading-mcp by GPT, Claude, and Koshi",
+  "files": [
+    "src",
+    "public",
+    "scripts/import_epub.py",
+    "scripts/import_pdf.py",
+    "scripts/import_text.py",
+    "scripts/smoke.mjs",
+    "scripts/card-smoke.mjs",
+    "docs",
+    "data.example",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "co-reading-mcp": "./src/server.js",
+    "co-reading-reader": "./src/http.js",
+    "co-reading-sse": "./src/server-sse.js"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "reader": "node src/http.js",
+    "start:sse": "node src/server-sse.js",
+    "smoke": "node scripts/smoke.mjs",
+    "smoke:cards": "node scripts/card-smoke.mjs",
+    "smoke:english": "node scripts/english-smoke.mjs",
+    "smoke:pdf": "node scripts/pdf-import-smoke.mjs",
+    "smoke:learning-system": "node scripts/learning-system-smoke.mjs",
+    "migrate:learning": "node scripts/migrate-learning.mjs",
+    "import:text": "python3 scripts/import_text.py",
+    "import:epub": "python3 scripts/import_epub.py",
+    "import:pdf": "python3 scripts/import_pdf.py",
+    "install:card-renderer": "npx playwright install chromium"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "reading",
+    "annotations",
+    "epub",
+    "claude"
+    ,"english-learning"
+  ],
+  "license": "MIT"
+}

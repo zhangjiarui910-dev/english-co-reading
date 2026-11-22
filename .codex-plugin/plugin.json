@@ -1,0 +1,27 @@
+{
+  "name": "english-co-reading",
+  "version": "0.1.0+codex.20260829131253",
+  "description": "A persistent English co-reading and review system with exact sentence resume, confirmed speech practice, a human-readable notebook, and privacy-safe sharing.",
+  "author": {
+    "name": "Meizi and Codex"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "\u82f1\u8bed\u5171\u8bfb \u00b7 English Co-Reading",
+    "shortDescription": "Read, resume exactly, review, and share English learning.",
+    "longDescription": "A private, durable English-learning system for original books. Resume at the exact sentence, confirm speech recognition before correction, keep a readable review notebook, separate literal meaning from natural translation and literary inference, and export privacy-safe study materials.",
+    "developerName": "Meizi and Codex",
+    "category": "Education",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Continue my English book with a short passage and discussion.",
+      "Review vocabulary from my current English book.",
+      "Open my review notebook and start a review.",
+      "Let me retell today's passage, then confirm the transcript before correcting my English."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

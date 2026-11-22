@@ -1,0 +1,7 @@
+interface:
+  display_name: "英语共读"
+  short_description: "Exact-resume English reading and long-term review"
+  default_prompt: "Use $english-co-reading to resume my exact reading position, discuss a short passage, confirm any speech transcript, and save useful learning for review."
+
+policy:
+  allow_implicit_invocation: true
