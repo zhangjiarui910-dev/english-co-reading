@@ -1,6 +1,6 @@
 {
   "name": "english-co-reading",
-  "version": "0.1.0+codex.20260829131253",
+  "version": "0.1.1+codex.20261122130000",
   "description": "A persistent English co-reading and review system with exact sentence resume, confirmed speech practice, a human-readable notebook, and privacy-safe sharing.",
   "author": {
     "name": "Meizi and Codex"
